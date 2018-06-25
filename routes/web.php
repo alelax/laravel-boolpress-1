@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home.index');
+
+//categories routes
+Route::get('/admin/categorie', 'CategoryController@index')->name('categories.index');
+Route::get('/admin/nuova-categoria', 'CategoryController@create')->name('categories.create');
+Route::post('/admin/nuova-categoria', 'CategoryController@save')->name('categories.save');
+
+//posts routes
+Route::get('/admin/posts', 'PostController@index')->name('posts.index');
+Route::get('/admin/nuovo-post', 'PostController@create')->name('posts.create');
+Route::post('/admin/nuovo-post', 'PostController@save')->name('posts.save');
+
+//People routes
+Route::get('/persone', 'PersonController@index')->name('people.index');
